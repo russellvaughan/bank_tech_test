@@ -1,5 +1,3 @@
-describe "Features" do 
-
 	describe "Depositing Money" do 
 		it 'allows a user to deposit money into an account' do 
 			account = BankAccount.new
@@ -7,5 +5,3 @@ describe "Features" do
 			expect(account.balance).to eq(100)
 		end
 	end
-
-end
