@@ -1,25 +1,22 @@
 class BankAccount
 
-attr_reader :balance, :statement, :print
+attr_reader :balance, :statement, :print, :history
 
 	def initialize(balance=0)
 		@balance = balance
 		@statement = []
+		@history =[]
 		@print = "date || credit || debit || balance\n"
 	end
 	
 	def credit(amount, date=Time.new)
 		@balance += amount
-		statement.push(date, amount, @balance)
-		text = "#{date} || #{sprintf('%.2f', amount)} || || #{sprintf('%.2f', balance)}\n"
-		@print.concat(text)
+		@statement+=[[date, amount, @balance]]
 	end
 
 	def debit(amount, date=Time.new)
 		@balance -= amount
-		statement.push(date, amount, @balance)
-		text = "#{date} || || #{sprintf('%.2f', amount)} || #{sprintf('%.2f', balance)}\n"
-		@print.concat(text)
+		@statement+=[[date, amount, @balance]]
 	end
 
 end

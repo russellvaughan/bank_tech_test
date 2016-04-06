@@ -33,19 +33,19 @@ describe BankAccount do
 		it "shows the history of a transaction" do 
 			allow(Time).to receive(:new) { '14/01/2012' } 
 			account.credit(100)
-			expect(account.statement).to eq(['14/01/2012', 100, 100])
+			expect(account.statement).to eq([['14/01/2012', 100, 100]])
 		end
 	end
 
 
-	describe '#print_statement' do 
-		it "prints the history of a transaction" do 
-			account = BankAccount.new(2000)
-			date = '14/01/2012'
-			account.credit(500, date)
-			expect(account.print).to eq("date || credit || debit || balance\n14/01/2012 || 500.00 || || 2500.00\n")
+	# describe '#print_statement' do 
+	# 	it "prints the history of a transaction" do 
+	# 		account = BankAccount.new(2000)
+	# 		date = '14/01/2012'
+	# 		account.credit(500, date)
+	# 		expect(account.print).to eq("date || credit || debit || balance\n14/01/2012 || 500.00 || || 2500.00\n")
 		
-		end
-	end
+	# 	end
+	# end
 
 end
